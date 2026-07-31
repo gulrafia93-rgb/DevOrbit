@@ -5,36 +5,38 @@ devorbit/
 ├── client/
 │   ├── src/
 │   │   ├── assets/        # static images, icons, default avatar
-│   │   ├── components/    # Navbar, PostCard, PostForm, CommentList, CommentForm,
-│   │   │                  # ProfileCard, FollowButton, TagFilterBar, AuthForm,
-│   │   │                  # ProtectedRoute, Loader, Toast
-│   │   ├── layouts/        # shared page shells (e.g. MainLayout with Navbar)
-│   │   ├── pages/          # Home, Login, Register, Feed, PostDetail, Profile,
-│   │   │                   # EditProfile, AdminDashboard, NotFound
-│   │   ├── hooks/          # useAuth, usePosts, useFetch (custom hooks)
-│   │   ├── context/        # AuthContext (Context API + useReducer)
-│   │   ├── services/       # api.js (Axios instance + interceptors), postService,
-│   │   │                   # userService, authService — one file per resource
-│   │   ├── utils/          # formatDate, validators, constants
-│   │   ├── routes/         # AppRoutes.jsx (route definitions)
-│   │   ├── styles/         # Tailwind config, global.css
-│   │   └── App.jsx
+│   │   ├── components/    # Navbar.jsx, Footer.jsx, ProtectedRoute.jsx (built Day 3);
+│   │   │                  # PostCard, PostForm, CommentList, CommentForm, ProfileCard,
+│   │   │                  # FollowButton, TagFilterBar, AuthForm, Loader, Toast (Days 4+)
+│   │   ├── layouts/        # MainLayout.jsx (built Day 3)
+│   │   ├── pages/          # Login.jsx, Register.jsx, Feed.jsx (placeholder), NotFound.jsx
+│   │   │                   # (built Day 3); PostDetail, Profile, EditProfile, AdminDashboard (Days 4+)
+│   │   ├── hooks/          # useAuth, usePosts, useFetch (Days 4+)
+│   │   ├── context/        # AuthContext.jsx (scaffolded Day 3, logic added Day 4)
+│   │   ├── services/       # api.js (Axios instance, built Day 3); postService,
+│   │   │                   # userService, authService (Days 4+)
+│   │   ├── utils/          # formatDate, validators, constants (Days 4+)
+│   │   ├── routes/         # AppRoutes.jsx (built Day 3)
+│   │   ├── App.css, index.css  # Tailwind v4 import lives in index.css
+│   │   └── App.jsx (wired to Router + AuthProvider + MainLayout, Day 3)
+│   ├── vite.config.js  # includes @tailwindcss/vite plugin
+│   ├── .env  # VITE_API_BASE_URL (gitignored)
 │   └── README.md
 │
 ├── server/
-│   ├── config/            # db.js (Mongoose connection), cloudinary.js
+│   ├── config/            # db.js (Mongoose connection, built Day 3); cloudinary.js (Day 5)
 │   ├── controllers/       # authController, userController, postController,
-│   │                      # commentController, adminController
-│   ├── middleware/        # authMiddleware (verify JWT), adminMiddleware (role check),
-│   │                      # errorHandler, uploadMiddleware (Multer config), rateLimiter
-│   ├── models/             # User.js, Post.js, Comment.js (Mongoose schemas)
-│   ├── routes/              # authRoutes, userRoutes, postRoutes, commentRoutes, adminRoutes
-│   ├── services/            # cloudinaryUpload.js (upload helper)
-│   ├── utils/                # generateToken.js
-│   ├── validators/           # request validation schemas (per resource)
-│   ├── uploads/               # (temp, gitignored — Multer local buffer before Cloudinary push)
-│   ├── server.js               # starts the HTTP server
-│   └── app.js                   # Express app config (middleware, routes mounted)
+│   │                      # commentController, adminController (Days 4+)
+│   ├── middleware/        # errorHandler.js (built Day 3); authMiddleware, adminMiddleware,
+│   │                      # uploadMiddleware, rateLimiter (Days 4+)
+│   ├── models/             # User.js, Post.js, Comment.js (Mongoose schemas, Days 4+)
+│   ├── routes/              # authRoutes, userRoutes, postRoutes, commentRoutes, adminRoutes (Days 4+)
+│   ├── services/            # cloudinaryUpload.js (upload helper, Day 5)
+│   ├── utils/                # generateToken.js (Day 4)
+│   ├── validators/           # request validation schemas (Days 4+)
+│   ├── .env                   # MONGO_URI, JWT_SECRET, etc. (gitignored, built Day 3)
+│   ├── server.js               # entry point — connects DB then starts HTTP server (built Day 3)
+│   └── app.js                   # Express app config: cors, morgan, /api/health, errorHandler (built Day 3)
 │
 ├── docs/                          # this folder — ARCHITECTURE, SCHEMA, API, UI-WIREFRAMES,
 │                                   # PROJECT-STRUCTURE, SECURITY
