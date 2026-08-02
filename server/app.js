@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const errorHandler = require("./middleware/errorHandler");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.get("/api/health", (req, res) => {
   res.status(200).json({ status: "OK", message: "DevOrbit API is running" });
 });
 
-// Route mounting will go here (Day 4 onwards): app.use("/api/auth", authRoutes)
+app.use("/api/auth", authRoutes);
 
 app.use(errorHandler);
 
