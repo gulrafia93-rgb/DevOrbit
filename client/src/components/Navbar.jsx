@@ -16,6 +16,7 @@ export default function Navbar() {
       <div className="space-x-4 text-sm flex items-center">
         {user ? (
           <>
+            <Link to={`/profile/${user.id}`} className="hover:underline">Profile</Link>
             <span>Hi, {user.name}</span>
             <button onClick={handleLogout} className="hover:underline">Logout</button>
           </>
